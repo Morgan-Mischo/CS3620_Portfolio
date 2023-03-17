@@ -8,34 +8,33 @@ def Hobbies(request):
     context = {
         'hobby_list': hobby_list,
     }
-    return render(request, 'portfolioDatabase/index.html', context)
+    return render(request, 'portfolioDatabase/hobby_index.html', context)
 
 def Home(request):
-    hobby_list = Hobby.objects.all()
-    return HttpResponse(hobby_list)
+    return render(request, 'portfolioDatabase/home_index.html')
 
-def Portfolio(request):
+def Port(request):
     item_list = Portfolio.objects.all()
     context = {
         'item_list': item_list
     }
-    return render(request, 'portfolioDatabase/index2.html', context)
+    return render(request, 'portfolioDatabase/item_index.html', context)
 
 
 def Contact(request):
-    return HttpResponse('morganmischo@mail.weber.edu')
+    return render(request, 'portfolioDatabase/contact_index.html')
 
 
-def detail(request, hobby_id):
+def hobby_detail(request, hobby_id):
     hobby = Hobby.objects.get(pk=hobby_id)
     context = {
         'hobby': hobby
     }
-    return render(request, 'portfolioDatabase/detail.html', context)
+    return render(request, 'portfolioDatabase/hobby_detail.html', context)
 
-def detail2(request, item_id):
+def item_detail(request, item_id):
     item = Portfolio.objects.get(pk=item_id)
     context = {
         'item': item
     }
-    return render(request, 'portfolioDatabase/detail2.html', context)
+    return render(request, 'portfolioDatabase/item_detail.html', context)

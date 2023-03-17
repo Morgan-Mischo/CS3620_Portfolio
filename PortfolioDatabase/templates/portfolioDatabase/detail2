@@ -1,2 +1,0 @@
-<h1>{{ item.item_name }}</h1>
-<h2>{{ item.item_description }}</h2>
