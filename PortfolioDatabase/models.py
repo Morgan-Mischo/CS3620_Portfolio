@@ -17,3 +17,11 @@ class Hobby(models.Model):
     hobby_name = models.CharField(max_length=200)
     hobby_description = models.CharField(max_length=200)
     hobby_image = models.CharField(max_length=500, default="https://fjwp.s3.amazonaws.com/blog/wp-content/uploads/2020/02/29113959/hobby-money.png")
+
+class Contact(models.Model):
+    def __str__(self):
+        contact = self.name + '' + self.email + '' + self.message + ''
+        return contact
+    contact_name = models.CharField(max_length=200)
+    contact_email = models.CharField(max_length=200)
+    contact_message = models.CharField(max_length=500)

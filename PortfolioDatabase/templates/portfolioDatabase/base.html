@@ -14,9 +14,21 @@
         <a href="#" class="nav-item px-3">Add Items</a>
         <a href="#" class="nav-item px-3">Delete Items</a>
         <a href="#" class="nav-item px-3">View Items</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}" class="nav-item px-3">Logout</a>
+            <a href="{%  url 'profile' %}" class="nav-item px-3">Profile</a>
+        {% else %}
+            <a href="{% url 'login' %}" class="nav-item px-3">Login</a>
+        {% endif %}
     </div>
 </nav>
-
+{% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+         {{ message }}
+    </div>
+    {% endfor %}
+{% endif %}
 {% block body %}
 {% endblock %}
 </body>

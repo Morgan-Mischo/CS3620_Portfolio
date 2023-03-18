@@ -22,6 +22,7 @@
         </div>
         <div class="col-md-2">
             <a href="{% url 'item_detail' item.id %}" class="btn btn-success">Details</a>
+            <a href="{% url 'update_item' item.id %}" class="btn btn-primary">Update</a>
         </div>
     </div>
 {% endfor %}
